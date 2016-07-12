@@ -1,0 +1,31 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "logs:CreateLogGroup",
+            "Resource": "arn:aws:logs:us-east-1:293559892727:*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Resource": [
+                "arn:aws:logs:us-east-1:293559892727:log-group:/aws/lambda/todosEmailReminders:*"
+            ]
+        }
+    ]
+}
+
+{
+    "Version": "2012-10-17",
+    "Statement": [{
+        "Effect": "Allow",
+        "Action": [
+            "lambda:InvokeFunction"
+        ],
+        "Resource": ["*"]
+    }]
+}
