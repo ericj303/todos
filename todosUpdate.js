@@ -65,8 +65,8 @@ exports.handler = (event, context, callback) => {
             console.error("Unable to update item. Error JSON:", JSON.stringify(err, null, 2));
             callback("Unable to update item. Error JSON:", JSON.stringify(err, null, 2));
         } else {
-            console.log("Updated item:", JSON.stringify(data, null, 2));
-            callback("Updated item:", JSON.stringify(data, null, 2));
+            console.log("Updated item ", JSON.stringify(data, null, 2));
+            context.succeed("Updated item ", JSON.stringify(data, null, 2));
         }
     });
     
