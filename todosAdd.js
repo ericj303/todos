@@ -27,14 +27,14 @@ exports.handler = (event, context, callback) => {
     }
     
     var priority = 0;
-    if (event.priority) {
+    if (typeof event.priority !== 'undefined') {
         priority = event.priority;
     } else {
-	const err = 'Request Error: Missing description field in todo!';
+	const err = 'Request Error: Missing priority field in todo!';
         console.log(err);
         callback(new Error(err));
     }
-    
+
     var completed = '-';
     if (event.completed) {
         completed = event.completed;
@@ -59,7 +59,7 @@ exports.handler = (event, context, callback) => {
             callback("Unable to add item. Error JSON:", JSON.stringify(err, null, 2));
         } else {
             console.log("Added item " + uuid+ ": ", JSON.stringify(data, null, 2));
-            callback("uuid: " + uuid);
+            context.succeed("uuid: " + uuid);
         }
     });
 };
