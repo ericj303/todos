@@ -1,0 +1,7 @@
+apex init
+apex deploy
+apex invoke hello
+apex list
+apex list --tfvars
+apex logs
+
